@@ -4,11 +4,7 @@ def solution(skill, skill_trees):
     answer = 0
     
     for tree in skill_trees:
-        learned = ''
-        
-        for s in tree:
-            if s in skill:
-                learned += s
+        learned = ''.join([s for s in tree if s in skill])
                 
         if skill.startswith(learned):
             answer += 1
