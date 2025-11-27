@@ -4,6 +4,6 @@ def solution(n, s):
     if n > s:
         return [-1]
     
-    q, r = s//n, s%n
-    answer = [q for i in range(n-r)] + [q+1 for i in range(r)]
+    q, r = s // n, s % n
+    answer = [q for _ in range(n-r)] + [q+1 for _ in range(r)]
     return answer

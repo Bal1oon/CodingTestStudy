@@ -1,19 +1,20 @@
 # https://school.programmers.co.kr/learn/courses/30/lessons/42898
 
-def solution(m, n, puddles):    
-    dp = [[0] * m for _ in range(n)]
-    dp[0][0] = 1
+def solution(m, n, puddles):
+    MOD = 1000000007
     
-    puddles_set = set((j-1, i-1) for i, j in puddles)
+    d = [[0] * m for _ in range(n)]
+    puddles = {(j-1, i-1) for i, j in puddles}
 
+    d[0][0] = 1
     for i in range(n):
         for j in range(m):
-            if (i, j) in puddles_set:
-                dp[i][j] = 0
+            if (i, j) in puddles:
+                d[i][j] = 0
             else:
                 if i > 0:
-                    dp[i][j] += dp[i-1][j]
-                if j > 0:
-                    dp[i][j] += dp[i][j-1]
+                    d[i][j] += d[i-1][j]
+                if j > 0:    
+                    d[i][j] += d[i][j-1]
     
-    return dp[n-1][m-1] % 1000000007
+    return d[n-1][m-1] % MOD

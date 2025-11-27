@@ -18,3 +18,24 @@ def solution(tickets):
         
     dfs('ICN', ['ICN'], visited)
     return result[0]
+
+# ---
+# def solution(tickets):
+#     tickets.sort()
+#     visited = [False] * len(tickets)
+#     answer = []
+    
+#     def dfs(path, used):
+#         if used == len(tickets):
+#             answer.append(path)  
+#             return
+        
+#         for i, (start, end) in enumerate(tickets):
+#             if not visited[i] and start == path[-1]:
+#                 visited[i] = True
+#                 dfs(path + [end], used + 1)
+#                 visited[i] = False
+        
+#     dfs(['ICN'], 0)
+    
+#     return answer[0]
